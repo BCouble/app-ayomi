@@ -21,6 +21,32 @@ Build an image from the Dockerfile and assign it a name.
 docker-compose run web django-admin startproject ayomi .
 
 ...
-result : WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 
-Settings.py update DATABASES
+- result : WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+
+- Settings.py update DATABASES
+
+...
+
+docker-compose up
+
+...
+
+# Migrate
+
+# Create superuser
+
+-  Ceate venv
+...
+
+python -m venv venv
+
+...
+-  Activate venv
+...
+
+venv\Scripts\activate.bat
+
+...
+
+

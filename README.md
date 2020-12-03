@@ -32,11 +32,7 @@ docker-compose up
 
 ...
 
-# Migrate
-
-# Create superuser
-
--  Ceate venv
+-  Create venv
 ...
 
 python -m venv venv
@@ -48,5 +44,9 @@ python -m venv venv
 venv\Scripts\activate.bat
 
 ...
+
+# Migrate
+
+# Create superuser
 
 

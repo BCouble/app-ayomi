@@ -1,0 +1,18 @@
+version: "3.8"
+   
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=ayomi_bdd
+      - POSTGRES_USER=admayomi
+      - POSTGRES_PASSWORD=A1y2o3m4i!
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app-django
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

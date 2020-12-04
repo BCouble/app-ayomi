@@ -1,0 +1,16 @@
+{% for item in email %}
+<!-- Page Cards -->
+<div class="row">
+    <div class="col-lg-6">
+        <!-- Card profile -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Ajax data
+            </div>
+            <div class="card-body">
+                <span id="email" class="email">{{ item.email }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

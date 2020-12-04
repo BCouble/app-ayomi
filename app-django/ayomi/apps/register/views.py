@@ -59,7 +59,19 @@ class ProfileDetailView(ListView):
 
 class EmailUpdateView(BSModalUpdateView):
     model = User
-    template_name = 'manage_profile/profile_update_email.html'
+    template_name = 'register/profile_update_email.html'
     form_class = EmailModelForm
     success_message = 'Succès: Email à été modifié.'
-    success_url = reverse_lazy('manage_profile:mp-list')
+    success_url = reverse_lazy('register:mp-list')
+
+
+def email(request):
+    data = dict()
+    if request.method == 'GET':
+        books = Book.objects.all()
+        data['table'] = render_to_string(
+            '_email_table.html',
+            {'email': email},
+            request=request
+        )
+        return JsonResponse(data)

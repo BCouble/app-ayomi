@@ -2,6 +2,11 @@
 {% load static %}
 {% block contfluid %}
 {% for item in profile %}
+<!-- Page Cards -->
+<div class="row">
+    <div class="col-lg-6">
+        <!-- Card profile -->
+        <div class="card mb-4">
 <div class="card-header">
     Test technique Ayomi - profile
 </div>
@@ -15,6 +20,7 @@
         <span class="fa fa-pencil">Modifier E-Mail</span>
       </button>
 </div>
+</div></div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
@@ -31,7 +37,7 @@
   </div>
 {% endblock contfluid %}
 
-{% include "_mp_head.html" %}
+
 
 {% block extrascripts %}
 <script type="text/javascript">
@@ -47,7 +53,7 @@ $(function () {
             "</button>",
             "</div>",
             "<script>",
-            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(2000).remove();});",
             "<\/script>"
           ].join("");
 
@@ -71,7 +77,7 @@ $(function () {
 
     // Hide message
     $(".alert").fadeTo(2000, 500).slideUp(500, function () {
-        $(".alert").slideUp(500);
+        $(".alert").slideUp(2000);
     });
 
 });

@@ -12,5 +12,5 @@ urlpatterns = [
     path('user-add/', UserCreateView.as_view(), name='register-add'),
     path('p/', ProfileDetailView.as_view(), name='mp-list'),
     path('upmail/<int:pk>', EmailUpdateView.as_view(), name='up-email'),
-    path('profil/', EmailUpdateView.as_view(), name='m_profil'),
+    path('profile/', EmailUpdateView.as_view(), name='m_profile'),
 ]

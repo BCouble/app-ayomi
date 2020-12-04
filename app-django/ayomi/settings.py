@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import sys
 from pathlib import Path
-print("path : ")
-print(sys.path)
 
 # configuration of the project's file architecture
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -136,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# LOGIN_REDIRECT_URL = '/'
-# LOGIN_URL = '/register/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/register/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")

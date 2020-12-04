@@ -1,0 +1,79 @@
+{% extends "core/index.html" %}
+{% load static %}
+{% block contfluid %}
+{% for item in profile %}
+<div class="card-header">
+    Test technique Ayomi - profile
+</div>
+<div class="card-body">
+    <span class="text">{{ item.username }}</span>
+    <span class="text">{{ item.email }}</span>
+</div>
+
+<div class="float-right">
+    <button type="button" id="up-email" class="up-email btn btn-primary" data-form-url="{% url 'register:up-email' item.pk %}">
+        <span class="fa fa-pencil">Modifier E-Mail</span>
+      </button>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  
+{% endfor %}
+<div class="col-12 mb-3">
+    {% if email %}
+      {% include "_email_table.html" %}
+    {% else %}
+      <p class="no-books text-primary">No email added yet.</p>
+    {% endif %}
+  </div>
+{% endblock contfluid %}
+
+{% include "_mp_head.html" %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+$(function () {
+
+    var asyncSuccessMessageUpdate = [
+            "<div ",
+            "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+            "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+            "Success: Votre nouvelle adresse mail est enregistré.",
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+            "<span aria-hidden='true'>&times;</span>",
+            "</button>",
+            "</div>",
+            "<script>",
+            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+            "<\/script>"
+          ].join("");
+
+    function updateBookModalForm() {
+        $(".up-email").each(function () {
+            $(this).modalForm({
+                formURL: $(this).data("form-url"),
+                asyncUpdate: true,
+                asyncSettings: {
+                    closeOnSubmit: false,
+                    successMessage: asyncSuccessMessageUpdate,
+                    dataUrl: "upmail/",
+                    dataElementId: "#email",
+                    dataKey: "table",
+                    addModalFormFunction: updateBookModalForm
+                }
+            });
+        });
+    }
+    updateBookModalForm();
+
+    // Hide message
+    $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+        $(".alert").slideUp(500);
+    });
+
+});
+</script>
+{% endblock extrascripts %}

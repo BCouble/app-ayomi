@@ -9,6 +9,7 @@ services:
       - POSTGRES_PASSWORD=A1y2o3m4i!
   web:
     build: .
+    image: app_ayomi
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app-django

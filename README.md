@@ -48,8 +48,7 @@ bootstrap sb-admin-2
 
 Create html file & import css & js
 
-# Migrate
-
-# Create superuser
+Create superuser
+docker-compose run web python manage.py createsuperuser
 
 

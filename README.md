@@ -43,6 +43,11 @@ Create template folder and files
 
 Update setting file for 'DIRS' in TEMPLATES
 
+Import static file in core :
+bootstrap sb-admin-2
+
+Create html file & import css & js
+
 # Migrate
 
 # Create superuser
